@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/ur10/esp/esp-idf/components/esp_common/include",
+                "/home/ur10/esp/esp-idf/components/freertos/include",
+                "/home/ur10/esp/esp-idf/components/newlib/include",
+                "/home/ur10/esp/esp-idf/components/fatfs/test_fatfs_host/sdkconfig",
+                "/home/ur10/esp/esp-idf/components/xtensa/include",
+                "/home/ur10/esp/esp-idf/components/xtensa/esp32/include",
+                "/home/ur10/esp/esp-idf/components/esp_rom/include",
+                "/home/ur10/esp/esp-idf/components/heap/include",
+                "/home/ur10/esp/esp-idf/components/esp32/include",
+                "/home/ur10/esp/esp-idf/components/spiffs/include",
+                "/home/ur10/esp/esp-idf/components/nvs_flash/include",
+                "/home/ur10/esp/esp-idf/components/spi_flash/include",
+                "/home/ur10/esp/esp-idf/components/log/include",
+                "/home/ur10/esp/esp-idf/components/driver/include",
+                "/home/ur10/esp/esp-idf/components/soc/include",
+                "/home/ur10/esp/esp-idf/components/soc/esp32/include",
+                "/home/ur10/esp/esp-idf/components/driver/include/driver",
+                "/home/ur10/esp/esp-idf/components/esp_ringbuf/include",
+                "/home/ur10/esp/esp-idf/components/esp_event/include",
+                "/home/ur10/esp/esp-idf/components/esp_wifi/include",
+                "/home/ur10/esp/esp-idf/components/tcpip_adapter/include",
+                "/home/ur10/esp/esp-idf/components/fatfs/vfs",
+                "/home/ur10/esp/esp-idf/components/fatfs/src",
+                "/home/ur10/esp/esp-idf/components/wear_levelling/include",
+                "/home/ur10/esp/esp-idf/components/sdmmc/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

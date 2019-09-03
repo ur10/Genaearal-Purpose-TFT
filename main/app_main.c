@@ -8,10 +8,18 @@
 #include "freertos/queue.h"
 //esp_err_t device_tx(char *data);
 
+typedef struct app_main
+{
+    /* data */
+   int key;
+   int modulo;
+}a;
+
  char* buf="HERE GOES NOTHING\n";
  void app_main()
 {
- 
+    a arr[10];
+    
     esp_err_t res;
    res=device_init();
    if(res!=ESP_OK)

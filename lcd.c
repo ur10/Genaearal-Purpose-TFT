@@ -7,17 +7,17 @@
 #include "freertos/queue.h"
 #include "i2s.h"
 #include "soc/gpio_periph.h"
-#include "gpio.h"
 #include "lcd.h"
-
+#include"device_config.h"
 lcd_para_t lcd_para;
 
 
 /* helper functions for difernet lcd operations*/
  //clearing various lcd pins 
-void write_data(uint16_t data)
+void write_data(uint8_t data)
 {
-   /* TODO */
+   char *val=(char *)(&data);
+   device_tx(val);
 }
 
 void lcd_cs_clr(void)
@@ -78,47 +78,60 @@ void lcd_reset(void)
 }
 /* WRITING DATA AND SENDING COMMAND APIs */
 //helper function
-void lcd_write_data_helper(uint16_t data)
-{
-   lcd_cs_clr();
-   write_data(data);
-   lcd_cs_set();
-   
-}
+
  
  // Write to a register
 void lcd_WR_reg(uint16_t data)
 {
 	lcd_cs_clr();
    lcd_rs_clr();
-   lcd_write_data_helper(data<<8);
-   
+    write_data(data);
+    lcd_cs_set();
 }
 
-// Write an 8-bit data
-void lcd_WR_data(uint16_t data)
+/*void LCD_WR_REG(u8 data)
+{ 
+   LCD_CS_CLR;     
+	 LCD_RS_CLR;	  
+   SPI_WriteByte(SPI2,data);
+   LCD_CS_SET;	
+}
+
+void LCD_WR_DATA(u8 data)
 {
+   LCD_CS_CLR;
+	 LCD_RS_SET;
+   SPI_WriteByte(SPI2,data);
+   LCD_CS_SET;
+}
+
+*/
+// Write an 8-bit data
+void lcd_WR_data(uint8_t data)
+{
+   lcd_cs_clr();
    lcd_rs_set();
-   lcd_write_data_helper(data<<8);
+   write_data(data);
+   lcd_cs_set();
 }
 
 void lcd_WR_data_16bit(uint16_t data)
 {
    lcd_rs_set();
    lcd_cs_clr();
-   write_data(data<<8);
+   write_data(data>>8);
    write_data(data);
    lcd_cs_clr();
    lcd_rs_clr();
 }
 
 //Write data to a reg
-
+/*
 void lcd_WR_reg_data(uint16_t reg,uint16_t reg_val)
 {
    lcd_WR_data(reg);
    lcd_WR_data(reg_val);
-}
+}/*/
 
 // init for writing data to the RAM
 
@@ -258,12 +271,5 @@ void lcd_clear(uint16_t color)
 void lcd_set_cursor(uint16_t xPos,uint16_t yPos)
 {
    lcd_set_windows(xPos,yPos,xPos,yPos);
-}
-
-// Drawing a point
-void lcd_draw_point(uint16_t xpos,uint16_t ypos,uint16_t color)
-{
-   lcd_set_cursor(xpos,ypos);
-    lcd_WR_data_16bit(color);
 }
 

@@ -11,9 +11,9 @@
 #include "driver/gpio.h"
 #include "esp_log.h"
 #include "esp_intr_alloc.h"
-#include "device_config.h"
+#include "main/device_config.h"
 
-#define LCD_ID          0x9328
+#define LCD_ID          0x9328   
 #define LCD_H            320
 #define LCD_W            280
 /*values of various color to be displayed */
@@ -59,7 +59,9 @@ void send_parallel_data(uint8_t data);
 
 void lcd_init(void);
 
-void lcd_WR_data(uint16_t data);
+void lcd_WR_data(uint8_t data);
+
+void lcd_WR_data_16bit(uint16_t data);
 
 void lcd_WR_reg(uint16_t data);
 

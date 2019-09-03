@@ -23,10 +23,10 @@
 #define CLK                  GPIO_NUM_14
 #define CS                   GPIO_NUM_15
 
-//#define LCD_RST_PIN          GPIO_NUM_13 //  RESET PIN
-//#define LCD_CS_PIN           GPIO_NUM_14 //  CHIP SELECT PIN (ACTIVE LOW)
-//#define LCD_RS_PIN           GPIO_NUM_15 //  REGISTER SELECT PIN (COMMAND OR DATA MODE)
-//#define LCD_RD_PIN           GPIO_NUM_16 
+#define LCD_RST_PIN          GPIO_NUM_3 //  RESET PIN
+#define LCD_CS_PIN           GPIO_NUM_4 //  CHIP SELECT PIN (ACTIVE LOW)
+#define LCD_RS_PIN           GPIO_NUM_5 //  REGISTER SELECT PIN (COMMAND OR DATA MODE)
+#define LCD_RD_PIN           GPIO_NUM_6 
 
 esp_err_t pin_init();
 
